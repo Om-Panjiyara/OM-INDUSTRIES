@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Om Industries</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #f7f7f7; color: #333; }
+
+    header {
+      background: linear-gradient(90deg, #ff6a00, #ee0979);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 { font-size: 3em; margin-bottom: 10px; }
+    header p { font-size: 1.2em; }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #333;
+    }
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover { background: #555; }
+
+    section { padding: 50px 20px; max-width: 1000px; margin: auto; }
+
+    .slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      margin-bottom: 40px;
+    }
+    .slides {
+      display: flex;
+      width: 300%;
+      transition: all 0.5s ease;
+    }
+    .slides img {
+      width: 100%;
+      border-radius: 15px;
+    }
+    .navigation-manual {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: -40px;
+    }
+    .manual-btn {
+      border: 2px solid #ff6a00;
+      padding: 5px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 0 5px;
+    }
+    .manual-btn:hover { background: #ff6a00; }
+
+    .about, .contact { text-align: center; }
+    .about h2, .contact h2 { color: #ee0979; margin-bottom: 20px; }
+    .contact a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 25px;
+      background: #ff6a00;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .contact a:hover { background: #ee0979; }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Om Industries</h1>
+    <p>High-Quality Manufacturing Solutions | Explore Our Products</p>
+  </header>
+
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="slider">
+      <div class="slides" id="slides">
+        <img src="https://via.placeholder.com/1000x400.png?text=Product+1" alt="Product 1">
+        <img src="https://via.placeholder.com/1000x400.png?text=Product+2" alt="Product 2">
+        <img src="https://via.placeholder.com/1000x400.png?text=Product+3" alt="Product 3">
+      </div>
+      <div class="navigation-manual">
+        <div class="manual-btn" onclick="manualNav(0)"></div>
+        <div class="manual-btn" onclick="manualNav(1)"></div>
+        <div class="manual-btn" onclick="manualNav(2)"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Om Industries</h2>
+    <p>Om Industries specializes in manufacturing high-quality products with precision and innovation. Every product meets the highest standards of quality and durability, designed to deliver excellence to our customers.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+    <a href="mailto:panjiyaraom@gmail.com">Email Us</a>
+    <a href="tel:+919903023793">Call Us</a>
+    <a href="https://www.linkedin.com/in/om-panjiyara" target="_blank">LinkedIn</a>
+  </section>
+
+  <footer>
+    &copy; 2025 Om Industries. All Rights Reserved.
+  </footer>
+
+  <script>
+    // Slider automatic movement
+    let index = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
+
+    function showSlide(i){
+      slides.style.transform = `translateX(-${i*100}%)`;
+    }
+
+    function nextSlide(){
+      index = (index + 1) % totalSlides;
+      showSlide(index);
+    }
+
+    setInterval(nextSlide, 3000); // Change slide every 3 sec
+
+    // Manual navigation
+    function manualNav(i){
+      index = i;
+      showSlide(index);
+    }
+  </script>
+
+</body>
+</html>
