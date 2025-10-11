@@ -126,18 +126,7 @@
 </section>
 
     
-    <div class="slider">
-      <div class="slides" id="slides">
-        <img src="https://via.placeholder.com/1000x400.png?text=Product+1" alt="Product 1">
-        <img src="https://via.placeholder.com/1000x400.png?text=Product+2" alt="Product 2">
-        <img src="https://via.placeholder.com/1000x400.png?text=Product+3" alt="Product 3">
-      </div>
-      <div class="navigation-manual">
-        <div class="manual-btn" onclick="manualNav(0)"></div>
-        <div class="manual-btn" onclick="manualNav(1)"></div>
-        <div class="manual-btn" onclick="manualNav(2)"></div>
-      </div>
-    </div>
+    
   </section>
 
   <section id="about" class="about">
@@ -156,29 +145,7 @@
     &copy; 2025 Om Industries. All Rights Reserved.
   </footer>
 
-  <script>
-    // Slider automatic movement
-    let index = 0;
-    const slides = document.getElementById('slides');
-    const totalSlides = slides.children.length;
-
-    function showSlide(i){
-      slides.style.transform = `translateX(-${i*100}%)`;
-    }
-
-    function nextSlide(){
-      index = (index + 1) % totalSlides;
-      showSlide(index);
-    }
-
-    setInterval(nextSlide, 3000); // Change slide every 3 sec
-
-    // Manual navigation
-    function manualNav(i){
-      index = i;
-      showSlide(index);
-    }
-  </script>
+ 
 
 </body>
 </html>
