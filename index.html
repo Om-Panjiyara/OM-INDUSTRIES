@@ -8,75 +8,68 @@
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
     body { background: #f7f7f7; color: #333; }
     /* ===== New Header CSS ===== */
+/* ===== New Header CSS ===== */
 .top-header {
-  background: #fff;
-  color: #222;
-  padding: 20px 10px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-}
-
-.header-inner {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
-  max-width: 1100px;
-  margin: 0 auto;
+  justify-content: space-between; /* space between logo and nav */
+  padding: 10px 20px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  position: sticky; /* stays on top when scrolling */
+  top: 0;
+  z-index: 1000;
 }
 
 /* Logo */
 .logo {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
   cursor: pointer;
 }
 
-/* Brand text */
+/* Title next to logo */
 .title-wrap {
-  text-align: left;
+  margin-left: 15px;
 }
 
 .brand-name {
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .brand-sub {
-  font-size: 14px;
+  font-size: 12px;
   color: #555;
 }
 
-/* Separator line */
-.header-sep {
-  border: none;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(0,0,0,0.1), rgba(0,0,0,0.05));
-  margin: 15px 0;
-}
-
-/* Navigation bar */
+/* Nav on right */
 .main-nav {
   display: flex;
-  justify-content: center;
-  gap: 25px;
-  padding: 10px 0;
+  gap: 20px;
 }
 
 .main-nav a {
   text-decoration: none;
   color: #333;
   font-weight: 600;
-  font-size: 16px;
-  transition: 0.2s;
+  font-size: 14px;
 }
 
 .main-nav a:hover {
   color: #ff6600;
 }
+
+/* Responsive adjustments */
+@media (max-width: 720px){
+  .top-header { flex-direction: column; align-items: center; }
+  .title-wrap { margin-left: 0; text-align: center; }
+  .main-nav { flex-wrap: wrap; justify-content: center; gap: 10px; }
+}
+
 
 /* Smooth scroll for links */
 html {
@@ -155,7 +148,7 @@ html {
   <!-- ===== HEADER SECTION ===== -->
 <header class="top-header" id="top">
   <div class="header-inner">
-    <!-- Logo clickable to top -->
+    <!-- Logo fixed on left -->
     <div class="logo-wrap">
       <a href="#top">
         <img src="logo.png" alt="OMI Logo" class="logo">
@@ -167,20 +160,18 @@ html {
       <div class="brand-name">OM INDUSTRIES</div>
       <div class="brand-sub">Electrical Junction Box Manufacturers</div>
     </div>
+
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+      <a href="#top">Home</a>
+      <a href="#products">Products</a>
+      <a href="#brands">Brands</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
-
-  <!-- Divider line -->
-  <hr class="header-sep">
-
-  <!-- Navigation Bar -->
-  <nav class="main-nav">
-    <a href="#top">Home</a>
-    <a href="#products">Products</a>
-    <a href="#brands">Brands</a>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact</a>
-  </nav>
 </header>
+
 <!-- ===== END HEADER SECTION ===== -->
 
 
