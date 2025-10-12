@@ -11,42 +11,44 @@
 /* ===== HEADER STYLES ===== */
 .top-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-between; /* logo left, nav right */
-  padding: 20px 40px;
+  padding: 10px 20px;
   background: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  position: sticky; /* stays on top */
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-/* Logo */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 .logo {
-  width: 120px;  /* bigger logo */
-  height: 120px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   cursor: pointer;
 }
 
-/* Company name and subtitle next to logo */
 .title-wrap {
-  margin-left: 20px;
+  text-align: left;
 }
 
 .brand-name {
-  font-size: 36px; /* bigger company name */
+  font-size: 28px;
   font-weight: 700;
-  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .brand-sub {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
 }
 
-/* Navigation */
 .main-nav {
   display: flex;
   gap: 20px;
@@ -56,47 +58,26 @@
   text-decoration: none;
   color: #333;
   font-weight: 600;
-  font-size: 16px;
 }
 
 .main-nav a:hover {
   color: #ff6600;
 }
 
-/* Responsive */
 @media (max-width: 720px){
   .top-header {
     flex-direction: column;
     align-items: center;
-    gap: 10px;
   }
-  .title-wrap {
-    margin-left: 0;
-    text-align: center;
+  .header-left {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
   }
-  .brand-name { font-size: 28px; }
-  .logo { width: 100px; height: 100px; }
+  .title-wrap { text-align: center; }
   .main-nav { flex-wrap: wrap; justify-content: center; gap: 10px; }
 }
 
-
-
-/* Smooth scroll for links */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Responsive */
-@media (max-width:720px){
-  .header-inner { flex-direction: row; align-items:center; gap:12px; }
-  .title-wrap { text-align: left; }
-  .brand-name { font-size: 28px; }
-  .logo { width: 80px; height: 80px; }
-  .main-nav { flex-wrap: wrap; gap: 10px; }
-}
-
-
-    
 
     section { padding: 50px 20px; max-width: 1000px; margin: auto; }
 
@@ -157,30 +138,28 @@ html {
 <body>
   <!-- ===== HEADER SECTION ===== -->
 <header class="top-header" id="top">
-  <div class="header-inner">
+  <div class="header-left">
     <!-- Logo -->
-    <div class="logo-wrap">
-      <a href="#top">
-        <img src="logo.png" alt="OMI Logo" class="logo">
-      </a>
-    </div>
-
-    <!-- Company Name & Subtitle -->
+    <a href="#top">
+      <img src="logo.png" alt="OMI Logo" class="logo">
+    </a>
+    <!-- Company Name -->
     <div class="title-wrap">
       <div class="brand-name">OM INDUSTRIES</div>
       <div class="brand-sub">Electrical Junction Box Manufacturers</div>
     </div>
-
-    <!-- Navigation Bar -->
-    <nav class="main-nav">
-      <a href="#top">Home</a>
-      <a href="#products">Products</a>
-      <a href="#brands">Brands</a>
-      <a href="#about">About Us</a>
-      <a href="#contact">Contact</a>
-    </nav>
   </div>
+
+  <!-- Navigation Bar -->
+  <nav class="main-nav">
+    <a href="#top">Home</a>
+    <a href="#products">Products</a>
+    <a href="#brands">Brands</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
+
 
 <!-- ===== END HEADER SECTION ===== -->
 
