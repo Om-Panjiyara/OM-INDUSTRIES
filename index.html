@@ -1,208 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OM Industries | Electrical Junction Box Manufacturers</title>
-  <link rel="icon" href="logo.png" type="image/png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OM INDUSTRIES</title>
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family: "Poppins", sans-serif; }
-    body { background:#fff; color:#222; transition:background 0.4s, color 0.4s; scroll-behavior:smooth; }
-
-    header {
-      display:flex; justify-content:space-between; align-items:center;
-      padding:15px 5%; background:#f8f8f8; position:sticky; top:0; z-index:1000;
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body {
+      background: linear-gradient(180deg,#e9ebee,#f6f7f8);
+      color: #222;
+      transition: background 0.3s, color 0.3s;
     }
-    .header-left { display:flex; align-items:center; gap:12px; }
-    .header-left img { height:50px; cursor:pointer; }
-    .header-left div { line-height:1.2; }
-    .brand-name { font-size:28px; font-weight:700; color:#e60000; }
-    .brand-sub { font-size:12px; color:#555; }
+
+    /* ===== HEADER ===== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 28px;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      cursor: pointer;
+    }
+
+    .title-wrap {
+      text-align: left;
+    }
+
+    .brand-name {
+      font-size: 32px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #e60000;
+    }
+
+    .brand-sub {
+      font-size: 13px;
+      color: #555;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
 
     nav a {
-      text-decoration:none; margin:0 12px; font-weight:600; color:#333;
-      transition:color 0.3s;
+      text-decoration: none;
+      font-weight: 600;
+      color: #222;
+      transition: color 0.3s;
     }
-    nav a:hover { color:#e60000; }
 
-    /* Hero Section */
-    .hero {
-      text-align:center; padding:80px 20px;
-      background:linear-gradient(to right, #ffe9e9, #fff);
+    nav a:hover {
+      color: #ff6600;
     }
-    .hero h1 { font-size:42px; color:#e60000; margin-bottom:10px; }
-    .hero p { font-size:18px; color:#444; }
 
-    /* Product Section */
-    .products { padding:60px 5%; text-align:center; }
-    .products h2 { font-size:32px; color:#e60000; margin-bottom:30px; }
-    .product-grid {
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-      gap:25px;
-    }
-    .product {
-      position:relative; border-radius:12px; overflow:hidden;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-      transition:transform 0.3s;
-    }
-    .product img {
-      width:100%; height:250px; object-fit:cover; display:block;
-      transition:transform 0.4s;
-    }
-    .product:hover img { transform:scale(1.05); }
-    .overlay {
-      position:absolute; top:0; left:0; width:100%; height:100%;
-      background:rgba(0,0,0,0.6); color:#fff; opacity:0;
-      display:flex; align-items:center; justify-content:center;
-      transition:opacity 0.3s;
-    }
-    .product:hover .overlay { opacity:1; }
-    .overlay p { font-size:18px; font-weight:500; }
-
-    /* About & Contact */
-    footer {
-      background:#111; color:#eee; padding:60px 5%;
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-      gap:30px;
-    }
-    footer h3 { color:#e60000; margin-bottom:15px; }
-    footer a { color:#fff; text-decoration:none; }
-    footer a:hover { text-decoration:underline; }
-    .contact-info p { margin:6px 0; }
-
-    /* WhatsApp Button */
-    .whatsapp {
-      position:fixed; bottom:20px; right:20px; background:#25D366;
-      color:#fff; font-size:28px; padding:15px; border-radius:50%;
-      text-align:center; box-shadow:0 4px 8px rgba(0,0,0,0.3);
-      transition:transform 0.3s; z-index:999;
-    }
-    .whatsapp:hover { transform:scale(1.1); }
-
-    /* Dark Mode */
-    .dark-mode {
-      background:#111; color:#eee;
-    }
-    .dark-mode header { background:#222; }
-    .dark-mode nav a { color:#eee; }
-    .dark-mode .hero { background:linear-gradient(to right, #222, #333); color:#eee; }
-    .dark-mode .product { box-shadow:0 4px 12px rgba(255,255,255,0.1); }
-
-    /* Moon Icon Button */
+    /* 🌙 Dark Mode Toggle */
     .dark-toggle {
-  background: none;
-  border: none;
-  padding: 4px;
-  margin-left: 10px;
-  cursor: pointer;
-}
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      margin-left: 8px;
+    }
 
-.dark-toggle img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-  transition: transform 0.2s ease;
-}
+    .dark-toggle img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+    }
 
-.dark-toggle:hover img {
-  transform: scale(1.2);
-}
+    .dark-toggle:hover img {
+      transform: rotate(20deg) scale(1.1);
+    }
 
+    /* ===== HERO SECTION ===== */
+    .hero {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: linear-gradient(135deg,#dfe6e9,#b2bec3);
+    }
 
-    @media (max-width:768px){
-      header { flex-direction:column; gap:10px; }
-      nav a { margin:0 8px; }
-      .hero h1 { font-size:34px; }
-      .hero p { font-size:16px; }
+    .hero h1 {
+      font-size: 40px;
+      color: #222;
+    }
+
+    .hero p {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #444;
+    }
+
+    /* ===== PRODUCTS ===== */
+    #products {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    #products h2 {
+      color: #e60000;
+      margin-bottom: 30px;
+    }
+
+    .product-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 26px;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border-radius: 12px;
+      width: 300px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: transform .28s ease, box-shadow .28s ease;
+      border: 1px solid rgba(0,0,0,0.04);
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.14);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      padding: 12px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .product-card:hover .product-info {
+      opacity: 1;
+    }
+
+    /* ===== ABOUT / CONTACT ===== */
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .about h2, .contact h2 {
+      color: #e60000;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 25px;
+      background: #ff6a00;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .contact a:hover { background: #e60000; }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: white;
+    }
+
+    /* 🌙 DARK MODE STYLES */
+    .dark-mode {
+      background: #121212;
+      color: #eee;
+    }
+
+    .dark-mode header {
+      background: #1e1e1e;
+      box-shadow: 0 2px 10px rgba(255,255,255,0.05);
+    }
+
+    .dark-mode nav a { color: #eee; }
+    .dark-mode nav a:hover { color: #ff6600; }
+    .dark-mode .product-card { background: #1f1f1f; color: #ddd; }
+    .dark-mode footer { background: #000; }
+
+    @media(max-width:720px){
+      header { flex-direction: column; gap: 12px; }
+      .logo { width: 70px; height: 70px; }
+      .brand-name { font-size: 24px; text-align: center; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Header -->
   <header>
     <div class="header-left">
-      <a href="#top">
-        <img src="logo.png" alt="OM Industries Logo" class="logo">
-      </a>
-      <div>
+      <a href="#top"><img src="logo.png" alt="OM Logo" class="logo"></a>
+      <div class="title-wrap">
         <div class="brand-name">OM INDUSTRIES</div>
         <div class="brand-sub">Electrical Junction Box Manufacturers</div>
       </div>
     </div>
 
     <nav>
-      <a href="#home">Home</a>
+      <a href="#top">Home</a>
       <a href="#products">Products</a>
       <a href="#brands">Brands</a>
-     <button id="darkModeToggle">
-  <img id="darkIcon" src="https://cdn-icons-png.flaticon.com/512/6714/6714978.png" alt="Toggle Dark Mode" />
-</button>
+      <button class="dark-toggle" onclick="toggleDarkMode()">
+        <img src="moon.png" alt="Dark Mode">
+      </button>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <h1>Welcome to OM Industries</h1>
-    <p>“Delivering quality, durability, and innovation in every junction box.”</p>
+  <section class="hero" id="top">
+    <h1>Welcome to Om Industries</h1>
+    <p>Precision. Strength. Innovation. Excellence in every connection.</p>
   </section>
 
-  <!-- Product Section -->
-  <section id="products" class="products">
+  <section id="products">
     <h2>Our Products</h2>
-    <div class="product-grid">
-      <div class="product">
-        <img src="product1.png" alt="OMG Utility Box">
-        <div class="overlay"><p> OMG Utility Box </p></div>
+    <div class="product-container">
+
+      <div class="product-card">
+        <img src="product1.png" alt="OMG Box">
+        <div class="product-info">
+          <h3>OMG</h3>
+          <p>Versatile metal box with space and mounting points for switches, outlets, and electronics.</p>
+        </div>
       </div>
-      <div class="product">
-        <img src="product2.png" alt="RRR Electrical Box">
-        <div class="overlay"><p>RRR Electrical Box </p></div>
+
+      <div class="product-card">
+        <img src="product2.png" alt="RRR Box">
+        <div class="product-info">
+          <h3>RRR</h3>
+          <p>Durable steel box with multiple knockouts for secure, organized electrical setups.</p>
+        </div>
       </div>
-      <div class="product">
-        <img src="product3.png" alt="AVAN Junction Box">
-        <div class="overlay"><p>AVAN Junction Box </p></div>
+
+      <div class="product-card">
+        <img src="product3.png" alt="AVAN Box">
+        <div class="product-info">
+          <h3>AVAN</h3>
+          <p>Stylish, sturdy enclosure with pre-punched holes for safe and organized wiring.</p>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer id="contact">
-    <div class="about">
-      <h3>About Us</h3>
-      <p>At OM Industries, we manufacture top-quality electrical junction boxes ensuring safety, strength, and precision in every product. Trusted by professionals and distributors nationwide.</p>
-    </div>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Om Industries manufactures high-quality electrical junction boxes designed for performance, safety, and durability. We believe in delivering excellence through precision engineering and innovation.</p>
+  </section>
 
-    <div class="contact-info">
-      <h3>Contact Us</h3>
-      <p>📍 Address: Kolkata, India</p>
-      <p>📞 Phone: 9903023793</p>
-      <p>📧 <a href="mailto:panjiyaraom@gmail.com">panjiyaraom@gmail.com</a></p>
-      <p>💬 WhatsApp us for quick queries!</p>
-    </div>
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Have a question or need a quote? Get in touch with us directly.</p>
+    <a href="mailto:panjiyaraom@gmail.com">📧 Email Us</a>
+    <a href="https://wa.me/919903023793" target="_blank">💬 WhatsApp Us</a>
+  </section>
+
+  <footer>
+    © 2025 Om Industries. All Rights Reserved.
   </footer>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/919903023793" target="_blank" class="whatsapp" title="Chat on WhatsApp">💬</a>
-
-<script>
-  const toggle = document.getElementById('darkModeToggle');
-  const darkIcon = document.getElementById('darkIcon');
-
-  toggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-
-    // Switch icon between moon and sun
-    if (document.body.classList.contains('dark-mode')) {
-      darkIcon.src = "https://cdn-icons-png.flaticon.com/512/6714/6714974.png"; // sun icon
-      darkIcon.alt = "Light Mode";
-    } else {
-      darkIcon.src = "https://cdn-icons-png.flaticon.com/512/6714/6714978.png"; // moon icon
-      darkIcon.alt = "Dark Mode";
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
     }
-  });
-</script>
-
-
+  </script>
 </body>
 </html>
