@@ -1,277 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Om Industries — Trusted manufacturer of high-quality electrical products like OMG, RRR, RENBO, and AVAN. Reliable, durable, and built with precision." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Om Industries</title>
-  <link rel="icon" href="logo.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --light-bg: #f2f5f9;
-      --dark-bg: #1a1a1a;
-      --card-bg: #fff;
-      --text-color: #222;
-      --accent: #d32f2f;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: #f7f7f7; color: #333; transition: background 0.3s, color 0.3s; }
+    a { text-decoration: none; color: inherit; }
 
-    body.dark-mode {
-      --light-bg: #1a1a1a;
-      --card-bg: #2a2a2a;
-      --text-color: #f5f5f5;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--light-bg);
-      margin: 0;
-      color: var(--text-color);
-      transition: background 0.3s, color 0.3s;
-    }
-
-    header {
-      background: #ffffffd9;
+    /* ===== HEADER ===== */
+    .top-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 40px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      padding: 14px 28px;
+      background: #ffffff;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
+    .logo { width: 96px; height: 96px; object-fit: contain; cursor: pointer; }
+    .nav-links { display: flex; gap: 22px; align-items:center; }
+    .nav-links a { font-weight: 600; font-size: 15px; padding: 6px 8px; transition: color .18s; }
+    .nav-links a:hover { color: #ff6600; }
+    .dark-mode-toggle { margin-left: 15px; cursor: pointer; padding:6px 12px; background:#ff6600; color:white; border-radius:6px; font-weight:bold; transition:0.3s; }
+    .dark-mode-toggle:hover { background:#e60000; }
 
-    .header-inner {
-      display: flex;
-      align-items: center;
-      gap: 15px;
+    /* ===== HERO ===== */
+    .hero { text-align: center; padding: 100px 20px 50px; background: linear-gradient(180deg,#e9ebee,#f6f7f8); }
+    .hero h1 { font-size: 48px; color: #e60000; margin-bottom: 12px; }
+    .hero p { font-size: 20px; color: #555; max-width: 700px; margin: auto; }
+
+    /* ===== PRODUCT GRID ===== */
+    .products-section { padding: 50px 20px; max-width: 1200px; margin: auto; }
+    .products-section h2 { text-align:center; color:#ee0979; margin-bottom:40px; }
+    .products-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px; }
+    .product-card { position: relative; width: 305px; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.04); cursor: pointer;
+      transition: transform .28s ease, box-shadow .28s ease;
     }
+    .product-card:hover { transform: translateY(-8px); box-shadow: 0 14px 30px rgba(0,0,0,0.14); }
+    .product-card img { width: 100%; height: 210px; object-fit: cover; display: block; }
+    .product-card .product-info { position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.7); color: white; padding: 12px; opacity: 0; transition: opacity 0.3s ease; }
+    .product-card:hover .product-info { opacity: 1; }
+    .product-card h3 { margin: 6px 0; font-size: 20px; color: #fff; }
+    .product-card p { font-size: 14px; line-height: 1.5; color: #ddd; }
 
-    .logo {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-    }
+    /* ===== MODAL ===== */
+    .modal { display: none; position: fixed; z-index: 2000; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.7); justify-content:center; align-items:center; }
+    .modal-content { background:#fff; display:flex; flex-direction:row; gap:20px; padding:20px; max-width:800px; width:90%; border-radius:12px; }
+    .modal-content img { width:50%; border-radius:12px; }
+    .modal-desc { width:50%; display:flex; flex-direction:column; justify-content:center; }
+    .modal-desc h3 { margin-bottom:12px; }
+    .modal-desc p { line-height:1.5; }
+    .close { position:absolute; top:20px; right:30px; font-size:28px; font-weight:bold; cursor:pointer; color:#fff; }
 
-    .brand-name {
-      font-size: 28px;
-      font-weight: 700;
-      color: #d32f2f;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+    /* ===== FOOTER ===== */
+    footer { background:#333; color:#fff; padding:40px 20px; text-align:center; position:relative; }
+    footer h3 { margin-bottom:12px; }
+    footer p, footer a { color:#fff; }
+    footer a { display:block; margin:6px 0; transition: color 0.3s; }
+    footer a:hover { color:#ff6600; }
+    .whatsapp-btn { position: fixed; bottom: 20px; right: 20px; background:#25d366; color:#fff; padding:14px; border-radius:50%; font-size:24px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); cursor:pointer; z-index:1000; }
 
-    .theme-toggle {
-      background: none;
-      border: 2px solid var(--accent);
-      color: var(--accent);
-      padding: 6px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .theme-toggle:hover {
-      background: var(--accent);
-      color: white;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%);
-    }
-
-    .hero h1 {
-      font-size: 40px;
-      color: #222;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: 15px auto 25px;
-      font-size: 18px;
-    }
-
-    .hero button {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .hero button:hover {
-      transform: scale(1.05);
-      background: #b71c1c;
-    }
-
-    .product-section {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .product-section h2 {
-      margin-bottom: 25px;
-      font-size: 30px;
-    }
-
-    .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-    }
-
-    .product-card {
-      position: relative;
-      background: var(--card-bg);
-      width: 280px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
-
-    .product-card:hover {
-      transform: translateY(-8px);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .product-info {
-      padding: 16px;
-    }
-
-    .product-card p {
-      opacity: 0;
-      transition: opacity 0.4s;
-      position: absolute;
-      top: 0;
-      left: 0;
-      color: white;
-      font-size: 16px;
-      background: rgba(0,0,0,0.6);
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .product-card:hover p {
-      opacity: 1;
-    }
-
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      margin-top: 40px;
-    }
-
-    /* WhatsApp Floating Button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
-    }
-
-    .whatsapp-float img {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-    }
-
+    /* ===== MEDIA ===== */
     @media(max-width:720px){
-      header { flex-direction: column; }
-      .product-grid { flex-direction: column; align-items: center; }
+      .top-header { flex-direction: column; gap: 10px; }
+      .logo { width: 72px; height: 72px; }
+      .hero h1 { font-size:32px; }
+      .hero p { font-size:16px; }
+      .product-card { width:100%; max-width:420px; }
+      .modal-content { flex-direction:column; align-items:center; }
+      .modal-content img, .modal-desc { width:100%; }
     }
+
+    /* ===== DARK MODE ===== */
+    body.dark { background:#111; color:#eee; }
+    body.dark .top-header { background:#222; }
+    body.dark .product-card .product-info { background: rgba(255,255,255,0.1); color:#fff; }
+    body.dark footer { background:#222; }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="header-inner">
-      <img src="logo.png" alt="Logo" class="logo">
-      <span class="brand-name">Om Industries</span>
-    </div>
-    <button class="theme-toggle" id="themeToggle">🌙 Dark Mode</button>
+  <!-- ===== HEADER ===== -->
+  <header class="top-header">
+    <a href="#top"><img src="logo.png" alt="OM Industries Logo" class="logo"></a>
+    <nav class="nav-links">
+      <a href="#top">Home</a>
+      <a href="#products">Products</a>
+      <a href="#brands">Brands</a>
+      <span class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</span>
+    </nav>
   </header>
 
-  <section class="hero" data-aos="fade-up">
-    <h1>Welcome to Om Industries</h1>
-    <p>Manufacturer of premium quality electrical junction and utility boxes. Built with precision and durability you can trust.</p>
-    <button onclick="document.querySelector('#products').scrollIntoView({behavior:'smooth'})">Explore Products</button>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="top">
+    <h1>Welcome to OM Industries</h1>
+    <p>"Engineering Excellence, Powering Innovation." <br> High-quality products built with precision and durability.</p>
   </section>
 
-  <section class="product-section" id="products">
-    <h2 data-aos="fade-up">Our Products</h2>
-    <div class="product-grid">
-      <div class="product-card" data-aos="zoom-in">
-        <img src="omg.png" alt="OMG Product">
-        <p>Strong and reliable OMG Utility Box.</p>
-        <div class="product-info"><h3>OMG Box</h3></div>
+  <!-- ===== PRODUCTS ===== -->
+  <section class="products-section" id="products">
+    <h2>Our Products</h2>
+    <div class="products-container">
+      <div class="product-card">
+        <img src="product1.png" alt="OMG">
+        <div class="product-info">
+          <h3>OMG</h3>
+          <p>Versatile metal box with space and mounting points for switches, outlets, and electronics.</p>
+        </div>
       </div>
-      <div class="product-card" data-aos="zoom-in">
-        <img src="rrr.png" alt="RRR Product">
-        <p>Durable RRR Electrical Junction Box.</p>
-        <div class="product-info"><h3>RRR Box</h3></div>
+      <div class="product-card">
+        <img src="product2.png" alt="RRR">
+        <div class="product-info">
+          <h3>RRR</h3>
+          <p>Durable steel box with multiple knockouts for secure, organized electrical setups.</p>
+        </div>
       </div>
-      <div class="product-card" data-aos="zoom-in">
-        <img src="renbo.png" alt="RENBO Product">
-        <p>Stylish RENBO metal housing solution.</p>
-        <div class="product-info"><h3>RENBO Box</h3></div>
-      </div>
-      <div class="product-card" data-aos="zoom-in">
-        <img src="avan.png" alt="AVAN Product">
-        <p>Compact AVAN utility enclosure for versatile use.</p>
-        <div class="product-info"><h3>AVAN Box</h3></div>
+      <div class="product-card">
+        <img src="product3.png" alt="AVAN">
+        <div class="product-info">
+          <h3>AVAN</h3>
+          <p>Stylish, sturdy enclosure with pre-punched holes for safe and organized wiring.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="contact" id="contact" data-aos="fade-up">
-    <h2>Contact Us</h2>
-    <form action="https://formspree.io/f/mnqeyjdy" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required><br><br>
-      <input type="email" name="email" placeholder="Your Email" required><br><br>
-      <textarea name="message" placeholder="Your Message" required></textarea><br><br>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+  <!-- ===== MODAL ===== -->
+  <div id="product-modal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img id="modal-img" src="" alt="">
+      <div class="modal-desc">
+        <h3 id="modal-title"></h3>
+        <p id="modal-text"></p>
+      </div>
+    </div>
+  </div>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2025 Om Industries. All Rights Reserved.</p>
+    <h3>About OM Industries</h3>
+    <p>OM Industries specializes in high-quality electrical products with precision and innovation.</p>
+    <h3>Contact Us</h3>
+    <a href="mailto:panjiyaraom@gmail.com">Email Us</a>
+    <a href="https://wa.me/919903023793" target="_blank">WhatsApp</a>
   </footer>
 
-  <a href="https://wa.me/919903023793" class="whatsapp-float" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-  </a>
+  <div class="whatsapp-btn" onclick="window.open('https://wa.me/919903023793','_blank')">📱</div>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- ===== SCRIPTS ===== -->
   <script>
-    AOS.init();
+    // Product modal
+    const modal = document.getElementById('product-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalText = document.getElementById('modal-text');
+    const closeBtn = modal.querySelector('.close');
 
-    const toggleBtn = document.getElementById('themeToggle');
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const imgSrc = card.querySelector('img').src;
+        const title = card.querySelector('h3').innerText;
+        const desc = card.querySelector('p').innerText;
+
+        modal.style.display = 'flex';
+        modalImg.src = imgSrc;
+        modalTitle.innerText = title;
+        modalText.innerText = desc;
+      });
     });
+
+    closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+    modal.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
+
+    // Dark Mode Toggle
+    function toggleDarkMode(){
+      document.body.classList.toggle('dark');
+      const btn = document.querySelector('.dark-mode-toggle');
+      btn.innerText = document.body.classList.contains('dark') ? "Light Mode" : "Dark Mode";
+    }
   </script>
 
 </body>
