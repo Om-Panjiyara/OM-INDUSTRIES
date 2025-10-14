@@ -6,270 +6,357 @@
   <title>Om Industries</title>
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: "Poppins", Arial, sans-serif;
     }
 
     body {
-      background-color: #f9f9f9;
+      background: linear-gradient(180deg, #e0e3e7, #f5f6f8);
       color: #333;
     }
 
-    header {
-      background: #003366;
-      color: #fff;
-      padding: 16px 5%;
+    /* ===== HEADER ===== */
+    .top-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      padding: 14px 28px;
+      background: linear-gradient(90deg, #f8f9fa, #dee2e6);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    header h1 {
-      font-size: 28px;
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
     }
 
-    header img {
-      height: 50px;
-      width: auto;
+    .logo {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      cursor: pointer;
     }
 
-    nav a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #ffd700;
-    }
-
-    /* About Section */
-    #about {
-      padding: 50px 5%;
-      background: #fff;
-      text-align: center;
-    }
-
-    #about h2 {
+    .brand-name {
       font-size: 32px;
-      margin-bottom: 10px;
-      color: #003366;
+      font-weight: 700;
+      color: #e60000;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
-    #about p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 16px;
-      line-height: 1.6;
+    .brand-sub {
+      font-size: 14px;
       color: #555;
     }
 
-    /* Product Section */
+    .main-nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .main-nav a:hover {
+      background: #e60000;
+      color: #fff;
+    }
+
+    /* ===== PRODUCTS ===== */
     #products {
-      padding: 60px 5%;
-      background: #f4f6fa;
+      padding: 50px 20px;
       text-align: center;
     }
 
     #products h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-      color: #003366;
+      font-size: 28px;
+      color: #e60000;
+      margin-bottom: 30px;
+      text-transform: uppercase;
     }
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    .products-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 25px;
-      justify-items: center;
     }
 
     .product-card {
-      background: #ffffff;
+      position: relative;
+      background: #fff;
       border-radius: 12px;
-      width: 100%;
-      max-width: 305px;
+      width: 300px;
       overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      transition: transform .28s ease, box-shadow .28s ease;
-      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
       cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .product-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.14);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
     .product-card img {
       width: 100%;
-      height: 210px;
+      height: 220px;
       object-fit: cover;
-      display: block;
     }
 
-    .product-card .card-body {
-      padding: 16px;
+    .product-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 15px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
     }
 
-    .product-card h3 {
-      margin: 6px 0;
+    .product-card:hover .product-info {
+      opacity: 1;
+    }
+
+    .product-info h3 {
       font-size: 20px;
-      color: #222;
+      margin-bottom: 8px;
     }
 
-    .product-card p {
-      color: #555;
+    .product-info p {
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
-    /* Modal */
+    /* ===== MODAL ===== */
     .modal {
       display: none;
       position: fixed;
-      z-index: 999;
+      z-index: 2000;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.5);
+      background-color: rgba(0,0,0,0.8);
       justify-content: center;
       align-items: center;
-      padding: 20px;
     }
 
     .modal-content {
-      background: #fff;
-      border-radius: 12px;
-      max-width: 500px;
-      width: 100%;
+      background-color: #fff;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
       padding: 20px;
-      text-align: center;
-      position: relative;
+      max-width: 800px;
+      width: 90%;
+      border-radius: 12px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     .modal-content img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 10px;
+      width: 50%;
+      border-radius: 12px;
     }
 
-    .modal-content h3 {
-      color: #003366;
-      margin-bottom: 10px;
+    .modal-desc {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .modal-content p {
-      color: #444;
-      font-size: 15px;
-    }
+    .modal-desc h3 { margin-bottom: 12px; color: #e60000; }
+    .modal-desc p { line-height: 1.5; color: #333; }
 
-    .close {
+    .modal .close {
       position: absolute;
-      top: 10px;
-      right: 14px;
-      font-size: 22px;
+      top: 20px;
+      right: 30px;
+      font-size: 32px;
+      font-weight: bold;
       cursor: pointer;
-      color: #555;
+      color: #fff;
     }
 
-    footer {
-      background: #003366;
-      color: #fff;
+    /* ===== ABOUT ===== */
+    #about {
+      padding: 50px 20px;
       text-align: center;
-      padding: 14px;
+    }
+
+    #about h2 {
+      color: #e60000;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    #about p {
+      max-width: 800px;
+      margin: auto;
+      color: #444;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: #fff;
       font-size: 14px;
     }
 
-    @media (max-width: 600px) {
-      header {
+    /* ===== WHATSAPP BUTTON ===== */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .top-header {
         flex-direction: column;
-        text-align: center;
+        gap: 10px;
+        padding: 16px;
       }
 
-      header h1 {
+      .logo {
+        width: 70px;
+        height: 70px;
+      }
+
+      .brand-name {
         font-size: 24px;
       }
 
-      nav {
-        margin-top: 10px;
+      .product-card {
+        width: 90%;
       }
 
-      #about p {
-        font-size: 15px;
+      .modal-content {
+        flex-direction: column;
+        align-items: center;
       }
 
-      #products h2 {
-        font-size: 26px;
+      .modal-content img,
+      .modal-desc {
+        width: 100%;
       }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="logo-section">
-      <img src="logo.png" alt="Om Industries Logo">
-      <h1>Om Industries</h1>
+  <!-- ===== HEADER ===== -->
+  <header class="top-header">
+    <div class="header-left">
+      <a href="#top"><img src="logo.png" alt="Logo" class="logo" /></a>
+      <div class="title-wrap">
+        <div class="brand-name">OM INDUSTRIES</div>
+        <div class="brand-sub">Electrical Junction Box Manufacturers</div>
+      </div>
     </div>
-    <nav>
-      <a href="#about">About</a>
+    <nav class="main-nav">
+      <a href="#top">Home</a>
       <a href="#products">Products</a>
+      <a href="#about">About Us</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section id="about" class="about">
+  <!-- ===== PRODUCTS ===== -->
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="products-container">
+      <div class="product-card">
+        <img src="product1.png" alt="Product 1" />
+        <div class="product-info">
+          <h3>OMG</h3>
+          <p>Versatile metal box with space and mounting points for switches, outlets, and electronics.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="product2.png" alt="Product 2" />
+        <div class="product-info">
+          <h3>RRR</h3>
+          <p>Durable steel box with multiple knockouts for secure, organized electrical setups.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="product3.png" alt="Product 3" />
+        <div class="product-info">
+          <h3>AVAN</h3>
+          <p>Stylish, sturdy enclosure with pre-punched holes for safe and organized wiring.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MODAL ===== -->
+  <div id="product-modal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img id="modal-img" src="" alt="" />
+      <div class="modal-desc">
+        <h3 id="modal-title"></h3>
+        <p id="modal-text"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
     <h2>About Om Industries</h2>
     <p>Om Industries specializes in manufacturing high-quality products with precision and innovation. Every product meets the highest standards of quality and durability, designed to deliver excellence to our customers.</p>
   </section>
 
-  <section id="products">
-    <h2>Our Products</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="product1.png" alt="Product 1">
-        <div class="card-body">
-          <h3>RRR Electrical Junction Box</h3>
-          <p>Durable and reliable junction box for safe electrical installations.</p>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="product2.png" alt="Product 2">
-        <div class="card-body">
-          <h3>OMG Utility Box</h3>
-          <p>Efficient and compact design for easy wiring and mounting.</p>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="product3.png" alt="Product 3">
-        <div class="card-body">
-          <h3>RENBO Switch Board</h3>
-          <p>Stylish, strong, and safe switch boards for modern homes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ===== FOOTER ===== -->
+  <footer>© 2025 Om Industries | All Rights Reserved</footer>
 
-  <div id="product-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <img id="modal-img" src="" alt="">
-      <h3 id="modal-title"></h3>
-      <p id="modal-text"></p>
-    </div>
-  </div>
+  <!-- ===== WHATSAPP BUTTON ===== -->
+  <a href="https://wa.me/919903023793" target="_blank" class="whatsapp-btn">💬</a>
 
-  <footer>
-    <p>© 2025 Om Industries. All rights reserved.</p>
-  </footer>
-
+  <!-- ===== SCRIPT ===== -->
   <script>
     const modal = document.getElementById('product-modal');
     const modalImg = document.getElementById('modal-img');
@@ -282,7 +369,6 @@
         const imgSrc = card.querySelector('img').src;
         const title = card.querySelector('h3').innerText;
         const desc = card.querySelector('p').innerText;
-
         modal.style.display = 'flex';
         modalImg.src = imgSrc;
         modalTitle.innerText = title;
@@ -294,8 +380,8 @@
       modal.style.display = 'none';
     });
 
-    modal.addEventListener('click', (e) => {
-      if(e.target === modal) modal.style.display = 'none';
+    modal.addEventListener('click', e => {
+      if (e.target === modal) modal.style.display = 'none';
     });
   </script>
 </body>
