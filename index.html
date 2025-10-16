@@ -278,6 +278,35 @@
       .hero h1 { font-size:1.8rem; }
       .modal-content { padding:20px; }
     }
+        /* BRAND SECTIONS STYLING */
+    .brand-section {
+      margin-bottom: 60px;
+    }
+
+    .brand-heading {
+      text-align: center;
+      font-size: 2rem;
+      color: #1a237e;
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .brand-heading:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: #d32f2f;
+      border-radius: 2px;
+    }
+
+    .dark-mode .brand-heading {
+      color: #7986cb;
+    }
   </style>
 </head>
 <body>
@@ -315,46 +344,116 @@
   <div class="section-title">
     <h2>Our Products</h2>
   </div>
-  <div class="product-container">
-    <div class="product-card">
-      <img src="product1.png" alt="OMG Junction Box">
-      <div class="product-info">
-        <h3>OMG Series</h3>
-        <p>Versatile metal box with ample space and multiple mounting points for switches, outlets, and electronics. Designed for industrial applications.</p>
-        <div class="product-features">
-          <span>Durable Construction</span>
-          <span>Multiple Knockouts</span>
-          <span>Weather Resistant</span>
+
+  <!-- OMG BRAND PRODUCTS -->
+  <div class="brand-section">
+    <h3 class="brand-heading">OMG Series Products</h3>
+    <div class="product-container">
+      <div class="product-card">
+        <img src="product1.png" alt="OMG Standard Junction Box">
+        <div class="product-info">
+          <h3>OMG Standard</h3>
+          <p>Versatile metal box with ample space and multiple mounting points for switches, outlets, and electronics.</p>
+          <div class="product-features">
+            <span>Standard Size</span>
+            <span>Multiple Knockouts</span>
+            <span>Universal Fit</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="omg-heavy-duty.png" alt="OMG Heavy Duty Junction Box">
+        <div class="product-info">
+          <h3>OMG Heavy Duty</h3>
+          <p>Industrial-grade junction box designed for harsh environments and heavy industrial applications.</p>
+          <div class="product-features">
+            <span>Industrial Grade</span>
+            <span>Weather Proof</span>
+            <span>Extra Durable</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="omg-weatherproof.png" alt="OMG Weatherproof Junction Box">
+        <div class="product-info">
+          <h3>OMG Weatherproof</h3>
+          <p>Waterproof junction box with sealed design perfect for outdoor and wet location installations.</p>
+          <div class="product-features">
+            <span>IP65 Rated</span>
+            <span>UV Resistant</span>
+            <span>Outdoor Use</span>
+          </div>
         </div>
       </div>
     </div>
-    <div class="product-card">
-      <img src="product2.png" alt="RRR Junction Box">
-      <div class="product-info">
-        <h3>RRR Series</h3>
-        <p>Durable steel box with multiple knockouts for secure, organized electrical setups. Perfect for commercial installations.</p>
-        <div class="product-features">
-          <span>Heavy-Duty Steel</span>
-          <span>Corrosion Resistant</span>
-          <span>Easy Installation</span>
+  </div>
+
+  <!-- RRR BRAND PRODUCTS -->
+  <div class="brand-section">
+    <h3 class="brand-heading">RRR Series Products</h3>
+    <div class="product-container">
+      <div class="product-card">
+        <img src="product2.png" alt="RRR Commercial Junction Box">
+        <div class="product-info">
+          <h3>RRR Commercial</h3>
+          <p>Durable steel box with multiple knockouts for secure, organized electrical setups in commercial buildings.</p>
+          <div class="product-features">
+            <span>Commercial Grade</span>
+            <span>Corrosion Resistant</span>
+            <span>Easy Installation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="rrr-fire-rated.png" alt="RRR Fire Rated Junction Box">
+        <div class="product-info">
+          <h3>RRR Fire Rated</h3>
+          <p>Fire-resistant junction box with special coating to prevent fire spread in critical installations.</p>
+          <div class="product-features">
+            <span>Fire Resistant</span>
+            <span>Safety Certified</span>
+            <span>High Temperature</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="rrr-deep-box.png" alt="RRR Deep Junction Box">
+        <div class="product-info">
+          <h3>RRR Deep Box</h3>
+          <p>Extra deep junction box designed for complex wiring setups with multiple connections and devices.</p>
+          <div class="product-features">
+            <span>Extra Depth</span>
+            <span>Multi-Device</span>
+            <span>Spacious Design</span>
+          </div>
         </div>
       </div>
     </div>
-    <div class="product-card">
-      <img src="product3.png" alt="AVAN Junction Box">
-      <div class="product-info">
-        <h3>AVAN Series</h3>
-        <p>Stylish, sturdy enclosure with pre-punched holes for safe and organized wiring. Ideal for modern residential applications.</p>
-        <div class="product-features">
-          <span>Aesthetic Design</span>
-          <span>Pre-Punched Holes</span>
-          <span>Fire Retardant</span>
+  </div>
+
+  <!-- AVAN BRAND PRODUCTS -->
+  <div class="brand-section">
+    <h3 class="brand-heading">AVAN Series Products</h3>
+    <div class="product-container">
+      <div class="product-card">
+        <img src="product3.png" alt="AVAN Junction Box">
+        <div class="product-info">
+          <h3>AVAN Standard</h3>
+          <p>Stylish, sturdy enclosure with pre-punched holes for safe and organized wiring.</p>
+          <div class="product-features">
+            <span>Aesthetic Design</span>
+            <span>Pre-Punched Holes</span>
+            <span>Fire Retardant</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
 <!-- BRANDS -->
 <section id="brands">
   <div class="section-title">
