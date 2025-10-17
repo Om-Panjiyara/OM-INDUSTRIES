@@ -181,6 +181,100 @@
     .brand-card p { color:#666; line-height:1.6; }
     .dark-mode .brand-card p { color:#aaa; }
 
+        /* ADD BRANDS NAVIGATION CSS RIGHT AFTER THIS LINE */
+    /* BRANDS NAVIGATION STYLING */
+    #brands-nav {
+      background: #f8f9fa;
+      padding: 60px 5%;
+    }
+
+    .dark-mode #brands-nav {
+      background: #1a1a1a;
+    }
+
+    .brands-navigation {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .brand-link {
+      text-decoration: none;
+      color: inherit;
+      flex: 1;
+      min-width: 300px;
+      max-width: 350px;
+    }
+
+    .brand-nav-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      text-align: center;
+      position: relative;
+      border: 2px solid transparent;
+    }
+
+    .dark-mode .brand-nav-card {
+      background: #1e1e1e;
+      border: 2px solid #333;
+    }
+
+    .brand-nav-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      border-color: #d32f2f;
+    }
+
+    .brand-nav-card h3 {
+      font-size: 24px;
+      color: #1a237e;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .dark-mode .brand-nav-card h3 {
+      color: #7986cb;
+    }
+
+    .brand-nav-card p {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    .dark-mode .brand-nav-card p {
+      color: #aaa;
+    }
+
+    .brand-arrow {
+      font-size: 24px;
+      color: #d32f2f;
+      transition: transform 0.3s ease;
+    }
+
+    .brand-nav-card:hover .brand-arrow {
+      transform: translateX(5px);
+    }
+
+    /* Responsive Brands Navigation */
+    @media (max-width: 768px) {
+      .brands-navigation {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .brand-link {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  
     /* CONTACT BOXES */
     .contact { display:flex; justify-content:center; flex-wrap:wrap; gap:25px; margin-top:30px; }
     .contact-box {
@@ -339,6 +433,36 @@
   </div>
 </section>
 
+  <!-- BRANDS NAVIGATION -->
+<section id="brands-nav">
+  <div class="section-title">
+    <h2>Our Brands</h2>
+  </div>
+  <div class="brands-navigation">
+    <a href="#omg-series" class="brand-link">
+      <div class="brand-nav-card">
+        <h3>OMG Series</h3>
+        <p>Industrial & Commercial Grade</p>
+        <span class="brand-arrow">→</span>
+      </div>
+    </a>
+    <a href="#rrr-series" class="brand-link">
+      <div class="brand-nav-card">
+        <h3>RRR Series</h3>
+        <p>Commercial & Fire Safety</p>
+        <span class="brand-arrow">→</span>
+      </div>
+    </a>
+    <a href="#avan-series" class="brand-link">
+      <div class="brand-nav-card">
+        <h3>AVAN Series</h3>
+        <p>Residential & Modern Design</p>
+        <span class="brand-arrow">→</span>
+      </div>
+    </a>
+  </div>
+</section>
+
 <!-- PRODUCTS -->
 <section id="products">
   <div class="section-title">
@@ -346,7 +470,7 @@
   </div>
 
   <!-- OMG BRAND PRODUCTS -->
-  <div class="brand-section">
+  <div class="brand-section" id="omg-series">
     <h3 class="brand-heading">OMG Series Products</h3>
     <div class="product-container">
       <div class="product-card">
@@ -443,7 +567,7 @@
   </div>
 
   <!-- RRR BRAND PRODUCTS -->
-  <div class="brand-section">
+  <div class="brand-section" id="rrr-series">
     <h3 class="brand-heading">RRR Series Products</h3>
     <div class="product-container">
       <div class="product-card">
@@ -527,7 +651,7 @@
   </div>
 
   <!-- AVAN BRAND PRODUCTS -->
-  <div class="brand-section">
+  <div class="brand-section" id="avan-series">
     <h3 class="brand-heading">AVAN Series Products</h3>
     <div class="product-container">
       <div class="product-card">
